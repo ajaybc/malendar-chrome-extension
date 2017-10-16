@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 
 import style from './style.css'
 export default class Day extends Component {
-	render() {
+	render(props) {
 		return (
 			<div id={style.container}>
         <a href="#" id={style.prevBtn}>
@@ -12,7 +12,7 @@ export default class Day extends Component {
           <div id={style.front}>
             <div id={style.heading}>സെപ്റ്റംബർ</div>
             <div id={style.dateWrap}>
-              <div id={style.eDate}>28</div>
+              <div id={style.eDate}>{props.day}</div>
               <div id={style.mday}>വ്യാഴം</div>
               <div id={style.special}>Nothing special</div>
             </div>

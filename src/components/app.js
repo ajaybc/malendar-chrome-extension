@@ -1,8 +1,13 @@
 import { h, Component } from 'preact';
-import { Router } from 'preact-router';
+// import { Router } from 'preact-router';
 import { Provider, connect } from 'preact-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import {
+  HashRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 import reset from '../style/reset.css';
 import fontAwesome from '../style/font-awesome.css';
@@ -11,6 +16,7 @@ import style from '../style/index.css';
 import Header from './header';
 import Footer from './footer';
 import Switcher from './switcher';
+import Calendar from '../routes/calendar';
 import DayView from '../routes/dayview';
 import Profile from '../routes/profile';
 
@@ -32,10 +38,8 @@ export default class App extends Component {
 			<Provider store={store}>
 				<div id="app">
 					<Header />
-					<Router onChange={this.handleRoute}>
-						<DayView path="/" />
-						<Profile path="/profile/" user="me" />
-						<Profile path="/profile/:user" />
+					<Router>
+						<Route path="/" component={ Calendar }/>
 					</Router>
 					<Switcher/>
 					<Footer />

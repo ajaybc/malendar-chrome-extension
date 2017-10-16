@@ -1,11 +1,10 @@
 import { FETCH_NEWS, FETCHING_NEWS, FETCHED_NEWS } from '../constants/action-types';
-import { NEWS_URL } from '../constants/urls';
+// import { NEWS_URL } from '../constants/urls';
+import * as api from '../api/news';
 
 export function fetchNews () {
   return dispatch => {
-    return fetch(NEWS_URL)
-      .then(response => response.json())
-      .then(json => dispatch(fetchedNews(json.news)))
+    return api.fetchNews().then(json => dispatch(fetchedNews(json.news)))
   };
 }
 
