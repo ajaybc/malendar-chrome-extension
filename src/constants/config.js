@@ -1,0 +1,1 @@
+export const NEWS_ITEM_HEIGHT = 50;

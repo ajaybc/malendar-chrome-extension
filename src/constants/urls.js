@@ -1,0 +1,1 @@
+export const NEWS_URL = 'http://104.198.31.239/news.php?source=manorama';

@@ -1,0 +1,49 @@
+#newScrollerContainer {
+  flex: 1;
+  overflow:hidden;
+  display: flex;
+}
+
+#newsScrollerInner {
+  overflow: hidden;
+  height: 50px;
+}
+
+#newsUl {
+  transition: margin-top 1s;
+}
+
+.newsLi {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.newsLi a:before {
+  content: " • ";
+  color: #F0B270;
+}
+
+.newsLi a{
+  color: #F0E9DC;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 1;
+  display: block;
+  padding: 17px 0;
+}
+
+#newsControlsContainer {
+  padding: 0 10px;
+}
+
+#newsControlsContainer a{
+  padding: 5px 0 0 0;
+  color: #F0E9DC;
+  display: block;
+  opacity: 0.8;
+}
+
+#newsControlsContainer a:hover{
+  opacity: 1;
+}

@@ -1,0 +1,125 @@
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#prevBtn, #nextBtn{
+  width: 100px;
+  color: #F0E9DC;
+  font-size: 30px;
+  text-align: center;
+  opacity: 0.1;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+#prevBtn:hover, #nextBtn:hover{
+  opacity: 0.9;
+}
+
+#flipper {
+  transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  width: 250px;
+  height: 341px;
+  position: relative;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+}
+
+#front {
+  z-index: 2;
+  text-align: center;
+  border-radius: 5px;
+}
+
+#heading {
+  font-size: 20px;
+  background: #825d5b;
+  padding: 12px 10px 10px 10px;
+  color: #f0e9dc;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+
+#dateWrap {
+  background: #f0e9dc;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+#eDate {
+  padding-top: 10px;
+  font-size: 150px;
+  color: #6f5f5c;
+  text-shadow: rgba(255, 255, 255, 0.5) 2px 3px 6px;
+  font-weight: 700;
+}
+
+#mday {
+  padding-top: 10px;
+  font-size: 34px;
+  color: #825d5b;
+}
+
+#special {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  background: #f0e9dc;
+  padding: 5px 0 1px 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #464646;
+  opacity: 0.85;
+  font-weight: 700;
+}
+
+#bottom {
+  width: 100%;
+  color: #f0e9dc;
+  display: flex;
+}
+
+#bottomLeft {
+  font-size: 40px;
+  padding: 20px 0;
+  width: 75px;
+  box-sizing: border-box;
+  background: #f0b270;
+  border-radius: 0 0 0 5px;
+}
+
+#bottomMiddle {
+  padding-left: 5px;
+  background: #e38f71;
+  width: 110px;
+  height: 80px;
+  text-align: left;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding-top: 18px;
+}
+
+#mMonth {
+  padding-bottom: 6px;
+}
+
+#nakshathra {
+
+}
+
+#bottomRight{
+  background: #a26b61;
+  border-radius: 0 0 5px 0;
+  width: 65px;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 15px 0;
+}

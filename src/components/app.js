@@ -1,12 +1,22 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import { Provider, connect } from 'preact-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import reset from '../style/reset.css';
+import fontAwesome from '../style/font-awesome.css';
 import style from '../style/index.css';
 
 import Header from './header';
+import Footer from './footer';
+import Switcher from './switcher';
 import DayView from '../routes/dayview';
 import Profile from '../routes/profile';
+
+import reducer from '../reducers';
+
+const store = createStore(reducer, applyMiddleware(thunk))
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -19,14 +29,18 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div id="app">
-				<Header />
-				<Router onChange={this.handleRoute}>
-					<DayView path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
-				</Router>
-			</div>
+			<Provider store={store}>
+				<div id="app">
+					<Header />
+					<Router onChange={this.handleRoute}>
+						<DayView path="/" />
+						<Profile path="/profile/" user="me" />
+						<Profile path="/profile/:user" />
+					</Router>
+					<Switcher/>
+					<Footer />
+				</div>
+			</Provider>
 		);
 	}
 }

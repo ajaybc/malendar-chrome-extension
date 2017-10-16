@@ -1,0 +1,14 @@
+#switcher {
+  text-align: center;
+}
+
+#switcher a{
+  display: inline-block;
+  padding: 15px;
+  color: #F0E9DC;
+  opacity: 0.6;
+}
+
+#switcher a.active{
+  opacity: 1;
+}
