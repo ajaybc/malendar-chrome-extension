@@ -33,7 +33,8 @@
     "preact-router": "^2.5.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "suncalc": "^1.8.0"
   },
   "browserslist": [
     "last 10 Chrome versions"
