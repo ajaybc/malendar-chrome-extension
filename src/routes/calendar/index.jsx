@@ -13,6 +13,7 @@ import * as CalendarActions from '../../actioncreators/calendar';
 import * as SettingsActions from '../../actioncreators/settings';
 
 import DayView from '../dayview';
+import MonthView from '../monthview';
 import Switcher from '../../components/switcher';
 
 class Calendar extends Component {
@@ -75,8 +76,11 @@ class Calendar extends Component {
       <div id={style.calendarContainer}>
         <Route exact path={props.match.url} render={this.renderRoute} />
         <Route exact path={`${props.match.url}day/:year/:month/:day`} render={(p) => (
-          <DayView day={props.month[p.match.params.day - 1]} {...p} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
+          <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
         )} />
+        <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
+          return <MonthView {...p} days={props.month} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
+        }} />
         <Switcher viewMode={props.settings.viewMode} onSwitch={this.handleViewSwitch}/>
       </div>
 		);
