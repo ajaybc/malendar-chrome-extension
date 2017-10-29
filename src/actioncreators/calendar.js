@@ -2,15 +2,15 @@ import { FETCH_MONTH, FETCHING_MONTH, FETCHED_MONTH } from '../constants/action-
 import * as api from '../api/calendar';
 
 export function fetchMonth (year, month) {
-  console.log('year month', year, month);
+  //console.log('year month', year, month);
   return dispatch => {
-    return api.fetchMonth(year, month).then(json => dispatch(fetchedMonth(json.news)))
+    return api.fetchMonth(year, month).then(month => dispatch(fetchedMonth(month.days)))
   };
 }
 
-export function fetchedMonth(news) {
+export function fetchedMonth(month) {
   return {
     type: FETCHED_MONTH,
-    news
+    month
   }
 }

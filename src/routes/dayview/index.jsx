@@ -4,33 +4,31 @@ import { bindActionCreators } from 'redux';
 
 import Day from '../../components/day';
 
-import * as CalendarActions from '../../actioncreators/calendar';
-
 class DayView extends Component {
   componentWillMount() {
-		const props = this.props;
-		const params = props.match.params;
-    props.actions.fetchMonth(params.year, params.month);
 	}
 	render (props) {
 		const params = props.match.params;
+		console.log(props);
 		return (
 			<div id="day-page-container">
-				<Day year={params.year} month={params.month} day={params.day} />
+				{ props.day && <Day day={props.day} onPrev={props.onPrev} onNext={props.onNext}/> }
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-  days: state.days
-})
+export default DayView;
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(CalendarActions, dispatch)
-})
+// const mapStateToProps = state => ({
+//   days: state.days
+// })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DayView);
+// const mapDispatchToProps = dispatch => ({
+//     actions: bindActionCreators(CalendarActions, dispatch)
+// })
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(DayView);

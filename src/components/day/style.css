@@ -61,10 +61,15 @@
   font-weight: 700;
 }
 
+#eDate.holiday {
+  color: #E38F71;
+}
+
 #mday {
   padding-top: 10px;
   font-size: 34px;
   color: #825d5b;
+  font-family: "NotoSansMalayalam";
 }
 
 #special {

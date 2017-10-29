@@ -13,6 +13,16 @@ html, body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+	font-family: "NotoSansMalayalam";
+	src: url("../fonts/NotoSansMalayalam-Regular.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: "NotoSansMalayalamUI";
+	src: url("../fonts/NotoSansMalayalamUI-Regular.ttf") format("ttf");
+}
+
 * {
 	box-sizing: border-box;
 }

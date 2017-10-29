@@ -9,6 +9,6 @@
   opacity: 0.6;
 }
 
-#switcher a.active{
+#switcher .active{
   opacity: 1;
 }

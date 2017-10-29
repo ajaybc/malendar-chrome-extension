@@ -13,7 +13,9 @@ var kollavarsham = new Kollavarsham(options);
 onmessage = function(e) {
   console.log('Message received from main script');
   if (e.data.action === 'calculateMonth') {
+    const start = performance.now();
     const days = calculateMonth(parseInt(e.data.year), parseInt(e.data.month));
+    // console.log(performance.now() - start);
     postMessage({ year: e.data.year, month: e.data.month, days});
   }
 }
@@ -26,7 +28,7 @@ function calculateMonth(year, month) {
   for (let i = 0; i < n; i++) {
     d.setDate(i + 1);
     const todayInMalayalamEra = kollavarsham.fromGregorianDate(d);
-    console.log(todayInMalayalamEra);
+    //console.log(todayInMalayalamEra);
     const newD = {
       gregorian: {
         date: d.getDate(),

@@ -24,6 +24,7 @@
     "worker-loader": "^1.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "kollavarsham": "^0.8.1",
     "localforage": "^1.5.2",
     "moment": "^2.18.1",

@@ -15,7 +15,6 @@ import style from '../style/index.css';
 
 import Header from './header';
 import Footer from './footer';
-import Switcher from './switcher';
 import Calendar from '../routes/calendar';
 import DayView from '../routes/dayview';
 import Profile from '../routes/profile';
@@ -41,7 +40,6 @@ export default class App extends Component {
 					<Router>
 						<Route path="/" component={ Calendar }/>
 					</Router>
-					<Switcher/>
 					<Footer />
 				</div>
 			</Provider>
