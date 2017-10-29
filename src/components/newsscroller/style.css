@@ -24,26 +24,37 @@
   color: #F0B270;
 }
 
-.newsLi a{
+.newsLi button{
   color: #F0E9DC;
   text-decoration: none;
   font-size: 16px;
   opacity: 1;
   display: block;
-  padding: 17px 0;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 #newsControlsContainer {
   padding: 0 10px;
 }
 
-#newsControlsContainer a{
+#newsControlsContainer button{
   padding: 5px 0 0 0;
   color: #F0E9DC;
   display: block;
   opacity: 0.8;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-#newsControlsContainer a:hover{
+#newsControlsContainer button:hover{
   opacity: 1;
+}
+
+#newsControlsContainer button:focus, .newsLi button:focus {
+  outline: none;
 }

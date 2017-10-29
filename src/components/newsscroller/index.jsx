@@ -3,6 +3,9 @@ import { NEWS_ITEM_HEIGHT } from '../../constants/config';
 
 import style from './style.css';
 
+function gotoURL(url) {
+  window.location.href = url;
+}
 
 export default class NewsScroller extends Component {
   constructor() {
@@ -11,15 +14,21 @@ export default class NewsScroller extends Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.scrollNews(), 3000)
+    this.startScrolling();
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
-  updateText = e => {
-    this.setState({ text: e.target.value });
+  startScrolling = () => {
+    this.interval = setInterval(() => { this.scrollNews() }, 3000);
+  }
+  
+  pauseScrolling = e => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   };
 
   scrollNews(mode = 'up', e) {
@@ -51,15 +60,15 @@ export default class NewsScroller extends Component {
             {
               props.news.map((item) => {
                 return <li class={style.newsLi}>
-                  <a href={item.link}>{item.title}</a>
+                  <button onClick={() => gotoURL(item.link)} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}>{item.title}</button>
                 </li>
               })
             }
           </ul>
         </div>
         <div id={style.newsControlsContainer}>
-          <a href="#" onClick={(e) => { this.scrollNews('up', e) }}><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-          <a href="#" onClick={(e) => { this.scrollNews('down', e) }}><i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+          <button onClick={(e) => { this.scrollNews('up', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+          <button onClick={(e) => { this.scrollNews('down', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
         </div>
       </div>
 		);
