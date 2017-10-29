@@ -22,13 +22,13 @@ export default class Month extends Component {
   }
 
   renderWeekDayTitles = () => {
-    return (<tr>
+    return (<div id={style.weekDayTitleContainer}>
       {
         malayalamDayNames.map((d) => {
-          return <th>{d}</th>;
+          return <div class={style.weekDayTitle}>{d}</div>;
         })
       }
-    </tr>);
+    </div>);
   }
 
   renderDay(day) {
@@ -52,13 +52,15 @@ export default class Month extends Component {
   }
 
   renderMonth = () => {
-    const weeks = [];
-    const weekCount = Math.ceil(this.state.paddedDays.length / 7);
-    for (let i = 0; i < weekCount; i++) {
-      weeks.push(this.renderWeek(i));
-    }
-    console.log(weeks);
-    return weeks;
+    return (
+      <div id={style.monthDaysContainer}>
+        {
+          this.state.paddedDays.map(function (day) {
+            return (day)?<Day day={day}/>:<div class={style.emptyDayContainer}></div>
+          })
+        }
+      </div>
+    )
   }
 
 	render(props) {
@@ -69,10 +71,8 @@ export default class Month extends Component {
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </a>
         <div id={style.monthContainer}>
-          <table>
-            { this.renderWeekDayTitles() }
-            { this.renderMonth() }
-          </table>
+          { this.renderWeekDayTitles() }
+          { this.renderMonth() }
         </div>
         <a href="#" id={style.nextBtn} onClick={(e) => {e.preventDefault(); props.onNext(day);}}>
           <i class="fa fa-chevron-right" aria-hidden="true"></i>

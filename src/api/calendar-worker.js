@@ -63,7 +63,7 @@ function daysInMonth(year, month) {
 
 function getWeekOfMonth(date) {
   const d = date.getDate();
-  return 1 | d / 7;
+  return Math.floor(d / 7) + 1;
 }
 
 function checkSpeciality(dayDetails) {
@@ -73,6 +73,7 @@ function checkSpeciality(dayDetails) {
   if (isSunday(dayDetails)) {
     isHoliday = true;
   } else if (isSecondSaturday(dayDetails)) {
+    console.log('Second saturday');
     isHoliday = true;
   }
 
@@ -151,6 +152,7 @@ function isSunday(dayDetails) {
 }
 
 function isSecondSaturday(dayDetails) {
+  // console.log(dayDetails.gregorian.day, dayDetails.gregorian.weekOfMonth);
   if (dayDetails.gregorian.day === 6 && dayDetails.gregorian.weekOfMonth === 2) {
     return true;
   }

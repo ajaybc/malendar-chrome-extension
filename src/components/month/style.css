@@ -11,7 +11,6 @@
   opacity: 0.1;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
-  height: 340px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -23,5 +22,94 @@
 }
 
 #monthContainer {
-  
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+}
+
+#weekDayTitleContainer {
+  display: flex;
+  background: #825d5b;
+  border-radius: 5px 5px 0 0;
+}
+
+.weekDayTitle {
+  text-align: center;
+  color: #f0e9dc;
+  box-sizing: border-box;
+  width: 14.28571%;
+  padding: 10px 20px 5px 20px;
+  font-size: 16px;
+}
+
+#monthDaysContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background: #f0e9dc;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+}
+
+.emptyDayContainer{
+  /* float: left; */
+  box-sizing: border-box;
+  width: 14.28571%;
+  /* width: 14.28571%; */
+  /* height: 118px; */
+  /* padding: 10px 0 0 0; */
+  /* display: block; */
+  text-align: center;
+  color: #6f5f5c;
+  border-bottom: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+}
+
+.monthDayContainer {
+  text-align: center;
+  position: relative;
+  /* float: left; */
+  box-sizing: border-box;
+  width: 14.28571%;
+  /* width: 14.28571%; */
+  height: 118px;
+  padding: 10px 0 0 0;
+  /* display: block; */
+  text-align: center;
+  color: #6f5f5c;
+  border-bottom: 1px solid #CCC;
+}
+
+.gregDate {
+  font-size: 60px;
+  font-weight: 700;
+  padding-top: 5px;
+  padding-bottom: 0;
+  text-shadow: rgba(255, 255, 255, 0.5) 1px 1px 1px;
+}
+
+.holiday .gregDate{
+  color: #E38F71;
+}
+
+.monthDayBottom {
+  display: flex;
+}
+
+.monthDayBottomLeft {
+  width: 30px;
+  font-size: 20px;
+  color: #f0b270;
+  padding: 5px;
+}
+
+.monthDayBottomRight {
+  padding-left: 5px;
+  padding-top: 10px;
+  color: #825d5b;
+  font-size: 14px;
+}
+
+.borderRight {
+  border-right: 1px solid #CCC;
 }

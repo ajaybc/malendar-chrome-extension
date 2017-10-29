@@ -6,7 +6,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background: #FAFAFA;
-	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-family: 'Helvetica Neue', Arial, sans-serif !important;
 	font-weight: 400;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
@@ -54,9 +54,10 @@ footer {
 	background: #E38F71;
 }
 
-#day-page-container{
+#day-page-container, #month-page-container{
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+
