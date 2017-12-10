@@ -67,14 +67,14 @@ export default class Month extends Component {
     const { days } = props;
 		return (
 			<div id={style.container}>
-        <a href="#" id={style.prevBtn} onClick={(e) => {e.preventDefault(); props.onPrev(day);}} >
+        <a href="#" id={style.prevBtn} onClick={(e) => { e.preventDefault(); props.onPrev({ month: days[0].gregorian.month, year: days[0].gregorian.year});}} >
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </a>
         <div id={style.monthContainer}>
           { this.renderWeekDayTitles() }
           { this.renderMonth() }
         </div>
-        <a href="#" id={style.nextBtn} onClick={(e) => {e.preventDefault(); props.onNext(day);}}>
+        <a href="#" id={style.nextBtn} onClick={(e) => { e.preventDefault(); props.onNext({ month: days[0].gregorian.month, year: days[0].gregorian.year }); }} >
           <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </a>
 			</div>

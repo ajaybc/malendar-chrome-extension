@@ -65,6 +65,18 @@ class Calendar extends Component {
     this.props.history.push(`/day/${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`);
   }
 
+  handlePrevMonth = (activeMonth) => {
+    const month = ((activeMonth.month - 1) > 0) ? (activeMonth.month - 1): 12;
+    const year = (month === 12) ? activeMonth.year - 1 : activeMonth.year;
+    this.props.history.push(`/month/${year}/${month}`);
+  }
+
+  handleNextMonth = (activeMonth) => {
+    const month = ((activeMonth.month + 1) < 13) ? (activeMonth.month + 1) : 1;
+    const year = (month === 1) ? activeMonth.year + 1 : activeMonth.year;
+    this.props.history.push(`/month/${year}/${month}`);
+  }
+
   renderRoute(props) {
     //TODO: Add to logic to go either to either day view or month view
     const today = moment();
@@ -79,7 +91,7 @@ class Calendar extends Component {
           <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
         )} />
         <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
-          return <MonthView {...p} days={props.month} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
+          return <MonthView {...p} days={props.month} onPrev={this.handlePrevMonth} onNext={this.handleNextMonth}/>
         }} />
         <Switcher viewMode={props.settings.viewMode} onSwitch={this.handleViewSwitch}/>
       </div>

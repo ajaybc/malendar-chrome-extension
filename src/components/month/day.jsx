@@ -11,5 +11,8 @@ export default function (props) {
       <div class={style.monthDayBottomLeft}>{day.malayalam.date}</div>
       <div class={style.monthDayBottomRight}>{day.malayalam.nakshatram}</div>
     </div>
+    {
+      (day.specialities && day.specialities.length > 0) && <div class={style.monthDaySpeciality}>{day.specialities[0]}</div>
+    }
   </div>
 }

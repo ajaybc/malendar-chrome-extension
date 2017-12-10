@@ -92,6 +92,18 @@
   color: #E38F71;
 }
 
+.monthDaySpeciality {
+  position: absolute;
+  width: 100%;
+  padding: 2px;
+  background: rgba(240, 233, 220, 0.5);
+  text-align: center;
+  top:35%;
+  left:0;
+  color: #825d5b;
+  font-size: 14px;
+}
+
 .monthDayBottom {
   display: flex;
 }
