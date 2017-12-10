@@ -21,14 +21,17 @@ class Calendar extends Component {
   //   super(props);
   //   this.handleViewSwitch = this.handleViewSwitch.bind(this);
   // }
-  componentDidMount() {
+  componentWillMount() {
     const props = this.props;
     const pathName = props.location.pathname;
     const splitPath = pathName.split('/');
+    console.log(splitPath);
     if (splitPath[1] && splitPath[2]) {
       console.log(splitPath[2], splitPath[3]);
       props.actions.fetchMonth(splitPath[2], splitPath[3]);
     }
+
+    this.props.actions.switchView(splitPath[1]);
   }
   componentWillReceiveProps(nextProps, nextState) {
     const oldPathName = this.props.location.pathname;
@@ -46,10 +49,13 @@ class Calendar extends Component {
 
   handleViewSwitch = (viewMode) => {
     this.props.actions.switchView(viewMode);
+    const d = new Date();
     if (viewMode === 'month') {
-      this.props.history.push('/month/2017/10');
+      //this.setState({viewMode});
+      this.props.history.push(`/month/${d.getFullYear()}/${d.getMonth() + 1}`);
     } else {
-      this.props.history.push('/day/2017/10/29');
+      //this.setState({ viewMode });
+      this.props.history.push(`/day/${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`);
     }
   }
 
@@ -83,13 +89,12 @@ class Calendar extends Component {
     return <Redirect to={`/day/${today.year()}/${today.month() + 1}/${today.date()}`} />
   }
 	render(props, state) {
-    //console.log('props', props);
 		return (
       <div id={style.calendarContainer}>
         <Route exact path={props.match.url} render={this.renderRoute} />
-        <Route exact path={`${props.match.url}day/:year/:month/:day`} render={(p) => (
-          <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
-        )} />
+        <Route exact path={`${props.match.url}day/:year/:month/:day`} render={(p) => {
+          return <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
+        }} />
         <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
           return <MonthView {...p} days={props.month} onPrev={this.handlePrevMonth} onNext={this.handleNextMonth}/>
         }} />
