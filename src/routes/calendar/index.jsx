@@ -11,6 +11,7 @@ import style from './style.css';
 
 import * as CalendarActions from '../../actioncreators/calendar';
 import * as SettingsActions from '../../actioncreators/settings';
+import * as WeatherActions from '../../actioncreators/weather';
 
 import DayView from '../dayview';
 import MonthView from '../monthview';
@@ -32,6 +33,8 @@ class Calendar extends Component {
     }
 
     this.props.actions.switchView(splitPath[1]);
+
+    this.props.actions.fetchWeather('2295423');
   }
   componentWillReceiveProps(nextProps, nextState) {
     const oldPathName = this.props.location.pathname;
@@ -93,7 +96,7 @@ class Calendar extends Component {
       <div id={style.calendarContainer}>
         <Route exact path={props.match.url} render={this.renderRoute} />
         <Route exact path={`${props.match.url}day/:year/:month/:day`} render={(p) => {
-          return <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay}/>
+          return <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay} weather={props.weather}/>
         }} />
         <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
           return <MonthView {...p} days={props.month} onPrev={this.handlePrevMonth} onNext={this.handleNextMonth}/>
@@ -107,10 +110,11 @@ class Calendar extends Component {
 const mapStateToProps = state => ({
   month: state.month,
   settings: state.settings,
+  weather: state.weather,
 })
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ ...CalendarActions, ...SettingsActions}, dispatch),
+    actions: bindActionCreators({ ...CalendarActions, ...SettingsActions, ...WeatherActions}, dispatch),
 })
 
 export default connect(

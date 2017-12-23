@@ -1,0 +1,71 @@
+#container {
+  display: flex;
+  justify-content: center;
+}
+
+#inner {
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 50px;
+}
+
+.weatherBlock {
+  display: flex;
+  color: #F0E9DC;
+  opacity: 0.4;
+  padding-right: 70px;
+  transition: opacity 1s;
+  cursor: default;
+}
+
+.weatherBlock:hover {
+  opacity: 1;
+}
+
+.weatherBlock:last-child {
+  padding-right: 0;
+}
+
+.left {
+  padding-right: 10px;
+}
+
+.left i{
+  font-size: 36px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.day {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 8px;
+  transition: opacity 1s;
+}
+
+.weatherBlock:hover .day {
+  opacity: 0;
+}
+
+.tempContainer {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.weatherBlock:hover .tempContainer {
+  opacity: 1;
+}
+
+.maxTemp {
+
+}
+
+.minTemp {
+
+}

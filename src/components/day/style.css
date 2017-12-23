@@ -30,6 +30,7 @@
   position: relative;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border-radius: 5px;
+  cursor: default;
 }
 
 #front {
@@ -127,4 +128,9 @@
   height: 80px;
   box-sizing: border-box;
   padding: 15px 0;
+}
+
+#bottomRight i{
+  font-size: 24px;
+  margin-bottom: 5px;
 }

@@ -26,6 +26,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "kollavarsham": "^0.8.1",
+    "left-pad": "^1.2.0",
     "localforage": "^1.5.2",
     "moment": "^2.18.1",
     "preact": "^8.2.5",

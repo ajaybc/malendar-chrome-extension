@@ -1,7 +1,12 @@
 import { h, Component } from 'preact';
+import classNames from 'classnames';
 
-import malayalamDayNames from '../../constants/mlDays';
-import malayalamMonthNames from '../../constants/mlMonths';
+import WeatherIcon from '../weather-icon';
+
+import malayalamDayNames from '../../constants/ml-days';
+import malayalamMonthNames from '../../constants/ml-months';
+
+import leftPad from 'left-pad';
 
 import style from './style.css'
 export default class Day extends Component {
@@ -16,19 +21,21 @@ export default class Day extends Component {
           <div id={style.front}>
             <div id={style.heading}>{malayalamMonthNames[day.gregorian.month - 1]}</div>
             <div id={style.dateWrap}>
-              <div id={style.eDate} class={style.holiday}>{day.gregorian.date}</div>
+              <div id={style.eDate} class={classNames({[style.holiday]: day.isHoliday})}>{day.gregorian.date}</div>
               <div id={style.mday}>{malayalamDayNames[day.gregorian.day]}</div>
               {
                 (day.specialities.length > 0) && <div id={style.special}>{day.specialities[0]}</div>
               }
             </div>
             <div id={style.bottom}>
-              <div id={style.bottomLeft}>{day.malayalam.date}</div>
+              <div id={style.bottomLeft}>{leftPad(day.malayalam.date, 2, '0')}</div>
               <div id={style.bottomMiddle}>
                 <div id={style.mMonth}>{day.malayalam.masam} </div>
                 <div id={style.nakshathra}>{day.malayalam.nakshatram}</div>
               </div>
-              <div id={style.bottomRight}></div>
+              <div id={style.bottomRight}>
+                {props.condition && <div><WeatherIcon code={props.condition.code} /><div>{props.condition.temp}°</div></div>}
+              </div>
             </div>
           </div>
           <div id="day-back"></div>

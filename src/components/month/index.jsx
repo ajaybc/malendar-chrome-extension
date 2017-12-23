@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 
-import malayalamDayNames from '../../constants/mlDays';
-import malayalamMonthNames from '../../constants/mlMonths';
+import malayalamDayNames from '../../constants/ml-days';
+import malayalamMonthNames from '../../constants/ml-months';
 
 import Day from './day';
 import style from './style.css';
