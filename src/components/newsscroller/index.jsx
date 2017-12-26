@@ -60,7 +60,7 @@ export default class NewsScroller extends Component {
             {
               props.news.map((item) => {
                 return <li class={style.newsLi}>
-                  <button onClick={() => gotoURL(item.link)} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}>{item.title}</button>
+                  <button onClick={() => gotoURL(item.link)} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}>&bull; {item.title}</button>
                 </li>
               })
             }
