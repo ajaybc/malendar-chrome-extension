@@ -9,5 +9,9 @@ export const FETCHED_MONTH = Symbol('FETCHED_MONTH');
 export const FETCH_WEATHER = Symbol('FETCH_WEATHER');
 export const FETCHING_WEATHER = Symbol('FETCHING_WEATHER');
 export const FETCHED_WEATHER = Symbol('FETCHED_WEATHER');
+export const FETCH_FAILED_WEATHER = Symbol('FETCH_FAILED_WEATHER');
 
-export const SWITCH_VIEW_MODE = Symbol('SWITCH_VIEW_MODE');
+export const LOAD_SETTINGS = Symbol('LOAD_SETTINGS');
+export const LOADED_SETTINGS = Symbol('LOADED_SETTINGS');
+export const SAVED_SETTINGS = Symbol('SAVED_SETTINGS');
+export const SWITCH_WEATHER_CITY = Symbol('SWITCH_WEATHER_CITY');

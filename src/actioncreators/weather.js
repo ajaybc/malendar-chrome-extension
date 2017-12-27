@@ -4,8 +4,15 @@ import * as api from '../api/weather';
 
 export function fetchWeather (woeid) {
   return dispatch => {
+    dispatch(fetchingWeather());
     return api.fetchWeather(woeid).then(json => dispatch(fetchedWeather(json)))
   };
+}
+
+export function fetchingWeather(weather) {
+  return {
+    type: FETCHING_WEATHER
+  }
 }
 
 export function fetchedWeather(weather) {

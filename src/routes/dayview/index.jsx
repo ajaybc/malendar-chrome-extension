@@ -10,28 +10,13 @@ class DayView extends Component {
 	}
 	render (props) {
 		const params = props.match.params;
-		console.log('props.weather');
-		console.log(props.weather);
 		return (
 			<div id="day-page-container">
-				{ props.day && <Day day={props.day} onPrev={props.onPrev} onNext={props.onNext} condition={props.weather.condition}/> }
-				{props.weather.forecast && <WeatherBar forecast={props.weather.forecast}/> }
+				{ props.day && <Day day={props.day} onPrev={props.onPrev} onNext={props.onNext} weather={props.weather}/> }
+				{ props.weather && <WeatherBar weather={props.weather} settings={props.settings} onWeatherCityChange={props.onWeatherCityChange}/> }
 			</div>
 		);
 	}
 }
 
 export default DayView;
-
-// const mapStateToProps = state => ({
-//   days: state.days
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//     actions: bindActionCreators(CalendarActions, dispatch)
-// })
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(DayView);

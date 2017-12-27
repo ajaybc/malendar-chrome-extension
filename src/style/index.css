@@ -31,6 +31,10 @@ body {
 	background: #6d6d77;
 }
 
+a {
+	cursor: pointer;
+}
+
 .clearfix:after {
   content: "";
   display: table;

@@ -6,6 +6,8 @@ import WeatherIcon from '../weather-icon';
 import malayalamDayNames from '../../constants/ml-days';
 import malayalamMonthNames from '../../constants/ml-months';
 
+import { LOADING, SUCCESS, ERROR } from '../../constants/loading-status';
+
 import leftPad from 'left-pad';
 
 import style from './style.css'
@@ -34,7 +36,8 @@ export default class Day extends Component {
                 <div id={style.nakshathra}>{day.malayalam.nakshatram}</div>
               </div>
               <div id={style.bottomRight}>
-                {props.condition && <div><WeatherIcon code={props.condition.code} /><div>{props.condition.temp}°</div></div>}
+                {props.weather.status === SUCCESS && <div><WeatherIcon code={props.weather.data.condition.code} /><div>{props.weather.data.condition.temp}°</div></div>}
+                {props.weather.status === LOADING && <div id={style.loading}><i class="fa fa-refresh fa-spin" aria-hidden="true"></i></div>}
               </div>
             </div>
           </div>

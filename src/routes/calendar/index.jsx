@@ -13,28 +13,25 @@ import * as CalendarActions from '../../actioncreators/calendar';
 import * as SettingsActions from '../../actioncreators/settings';
 import * as WeatherActions from '../../actioncreators/weather';
 
+import weatherDistricts from '../../constants/weather-districts';
+
 import DayView from '../dayview';
 import MonthView from '../monthview';
 import Switcher from '../../components/switcher';
 
 class Calendar extends Component {
-  // constructor (props) {
-  //   super(props);
-  //   this.handleViewSwitch = this.handleViewSwitch.bind(this);
-  // }
   componentWillMount() {
     const props = this.props;
     const pathName = props.location.pathname;
     const splitPath = pathName.split('/');
-    console.log(splitPath);
+    //console.log(splitPath);
     if (splitPath[1] && splitPath[2]) {
-      console.log(splitPath[2], splitPath[3]);
+      //console.log(splitPath[2], splitPath[3]);
       props.actions.fetchMonth(splitPath[2], splitPath[3]);
     }
 
-    this.props.actions.switchView(splitPath[1]);
-
     this.props.actions.fetchWeather('2295423');
+    this.props.actions.loadSettings();
   }
   componentWillReceiveProps(nextProps, nextState) {
     const oldPathName = this.props.location.pathname;
@@ -51,13 +48,10 @@ class Calendar extends Component {
   }
 
   handleViewSwitch = (viewMode) => {
-    this.props.actions.switchView(viewMode);
     const d = new Date();
     if (viewMode === 'month') {
-      //this.setState({viewMode});
       this.props.history.push(`/month/${d.getFullYear()}/${d.getMonth() + 1}`);
     } else {
-      //this.setState({ viewMode });
       this.props.history.push(`/day/${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`);
     }
   }
@@ -86,6 +80,12 @@ class Calendar extends Component {
     this.props.history.push(`/month/${year}/${month}`);
   }
 
+  handleWeatherCityChange = (settings) => {
+    console.log('change', settings);
+    this.props.actions.saveSettings(settings);
+    this.props.actions.fetchWeather(weatherDistricts[settings.weatherCity].yahooWoeid);
+  }
+
   renderRoute(props) {
     //TODO: Add to logic to go either to either day view or month view
     const today = moment();
@@ -96,7 +96,13 @@ class Calendar extends Component {
       <div id={style.calendarContainer}>
         <Route exact path={props.match.url} render={this.renderRoute} />
         <Route exact path={`${props.match.url}day/:year/:month/:day`} render={(p) => {
-          return <DayView {...p} day={props.month[p.match.params.day - 1]} onPrev={this.handlePrevDay} onNext={this.handleNextDay} weather={props.weather}/>
+          return <DayView {...p} 
+                  day={props.month[p.match.params.day - 1]} 
+                  onPrev={this.handlePrevDay} 
+                  onNext={this.handleNextDay} 
+                  weather={props.weather} 
+                  settings={props.settings} 
+                  onWeatherCityChange={this.handleWeatherCityChange}/>
         }} />
         <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
           return <MonthView {...p} days={props.month} onPrev={this.handlePrevMonth} onNext={this.handleNextMonth}/>

@@ -1,4 +1,4 @@
-export default districts = {
+const districts = {
   'kochi': {
     'malayalamName': 'കൊച്ചി',
     'yahooWoeid': 2295423
@@ -56,3 +56,5 @@ export default districts = {
     'yahooWoeid': 2295426
   }
 };
+
+export default districts;

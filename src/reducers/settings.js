@@ -1,18 +1,20 @@
-import { SWITCH_VIEW_MODE } from '../constants/action-types'
+import { LOADED_SETTINGS, SAVED_SETTINGS, SWITCH_WEATHER_CITY } from '../constants/action-types'
 
 const initialState = {
-  viewMode: 'day',
+  weatherCity: null
 }
 
-const ls = window.localStorage;
+// const ls = window.localStorage;
 
 export default function view(state = initialState, action) {
   switch (action.type) {
-    case SWITCH_VIEW_MODE:
-      ls.setItem('VIEW_MODE', action.viewMode);
-      return { ...state, viewMode: action.viewMode };
+    case LOADED_SETTINGS:
+      return action.settings;
+
+    case SAVED_SETTINGS:
+      return {...state, ...action.settings};
 
     default:
-      return state
+      return state;
   }
 }

@@ -1,13 +1,20 @@
 #container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 #inner {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 
   margin-top: 50px;
+}
+
+#weatherBlockWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .weatherBlock {
@@ -68,4 +75,60 @@
 
 .minTemp {
 
+}
+
+#cityContainer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+#cityContainer a{
+  text-decoration: none;
+  color: #F0E9DC;
+  opacity: 0.3;
+  transition: opacity 1s;
+  font-family: "NotoSansMalayalam";
+}
+
+#cityContainer a:hover {
+  opacity: 1;
+}
+
+#cityContainer #cityName {
+  display: none;
+}
+
+#cityContainer:hover #cityName {
+  display: inline;
+}
+
+#cityEditContainer {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#cityEditContainer input{
+  background: #F0E9DC;
+  color: #6D6D76;
+}
+
+#cityEditContainer select{
+  border: 1px solid #F0E9DC;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  color: #F0E9DC;
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+
+#cityEditContainer select:active, #cityEditContainer select:focus {
+  border: 1px solid #F0E9DC;
+  outline: none;
+}
+
+#loading {
+  text-align: center;
+  color: #F0E9DC;
 }

@@ -66,10 +66,13 @@ export default class NewsScroller extends Component {
             }
           </ul>
         </div>
-        <div id={style.newsControlsContainer}>
-          <button onClick={(e) => { this.scrollNews('up', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-          <button onClick={(e) => { this.scrollNews('down', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-        </div>
+        {
+          props.news && props.news.length > 0 &&
+          <div id={style.newsControlsContainer}>
+            <button onClick={(e) => { this.scrollNews('up', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+            <button onClick={(e) => { this.scrollNews('down', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          </div>
+        }
       </div>
 		);
 	}
