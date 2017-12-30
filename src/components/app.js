@@ -17,7 +17,6 @@ import Header from './header';
 import Footer from './footer';
 import Calendar from '../routes/calendar';
 import DayView from '../routes/dayview';
-import Profile from '../routes/profile';
 
 import reducer from '../reducers';
 
