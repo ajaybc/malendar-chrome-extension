@@ -1,3 +1,12 @@
+@font-face {
+	font-family: "NotoSansMalayalam";
+	src: url('../fonts/NotoSansMalayalam-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: "NotoSansMalayalamUI";
+	src: url("../fonts/NotoSansMalayalamUI-Regular.ttf") format("truetype");
+}
 
 
 html, body {
@@ -6,21 +15,12 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background: #FAFAFA;
-	font-family: 'Helvetica Neue', Arial, sans-serif !important;
+	/* font-family: 'Helvetica Neue', Arial, sans-serif !important; */
+	font-family: "NotoSansMalayalamUI" !important;
 	font-weight: 400;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-@font-face {
-	font-family: "NotoSansMalayalam";
-	src: url("../fonts/NotoSansMalayalam-Regular.ttf") format("ttf");
-}
-
-@font-face {
-	font-family: "NotoSansMalayalamUI";
-	src: url("../fonts/NotoSansMalayalamUI-Regular.ttf") format("ttf");
 }
 
 * {
@@ -35,10 +35,15 @@ a {
 	cursor: pointer;
 }
 
-.clearfix:after {
+
+:global(.clearfix:after) {
   content: "";
   display: table;
   clear: both;
+}
+
+:global(.english) {
+	font-family: 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 #app {
@@ -57,11 +62,3 @@ footer {
 	width: 100%;
 	background: #E38F71;
 }
-
-#day-page-container, #month-page-container{
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-

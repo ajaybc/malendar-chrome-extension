@@ -1,6 +1,9 @@
 import { h, Component } from 'preact';
-import { NEWS_ITEM_HEIGHT } from '../../constants/config';
+import classNames from 'classnames';
 
+import { NEWS_ITEM_HEIGHT, NEWS_SCROLL_TIMER } from '../../constants/config';
+
+import fontAwesome from '../../style/font-awesome.css';
 import style from './style.css';
 
 function gotoURL(url) {
@@ -22,19 +25,28 @@ export default class NewsScroller extends Component {
   }
 
   startScrolling = () => {
-    this.interval = setInterval(() => { this.scrollNews() }, 3000);
+    this.interval = setInterval(() => { this.scrollNews() }, NEWS_SCROLL_TIMER);
   }
   
-  pauseScrolling = e => {
+  pauseScrolling = () => {
+    console.log('pause', this);
     if (this.interval) {
       clearInterval(this.interval);
     }
   };
 
+  handleMouseEnter = (description) => {
+    console.log(this);
+    this.pauseScrolling();
+    this.props.showNewsDescription(description);
+  }
+
+  handleMouseLeave = () => {
+    this.startScrolling();
+    this.props.hideNewsDescription();
+  }
+
   scrollNews(mode = 'up', e) {
-    if (e) {
-      e.preventDefault();
-    }
     const maxSteps = (this.scroller.clientHeight / NEWS_ITEM_HEIGHT) - 1;
     const step = this.state.step;
     if (mode === 'up') {
@@ -59,8 +71,9 @@ export default class NewsScroller extends Component {
           <ul id={style.newsUl} class="clearfix" ref={(scroller) => { this.scroller = scroller; }} style={{'margin-top': (state.step * NEWS_ITEM_HEIGHT * -1) + 'px'}}>
             {
               props.news.map((item) => {
-                return <li class={style.newsLi}>
-                  <button onClick={() => gotoURL(item.link)} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}>&bull; {item.title}</button>
+                return <li class={style.newsLi} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}>
+                  {/* <button onClick={() => gotoURL(item.link)} onMouseEnter={() => { this.pauseScrolling(); props.showNewsDescription(item.description);}} onMouseLeave={() => {this.startScrolling(); props.hideNewsDescription()}}>&bull; {item.title}</button> */}
+                  <button onClick={() => gotoURL(item.link)}>&bull; {item.title}</button>
                 </li>
               })
             }
@@ -69,8 +82,8 @@ export default class NewsScroller extends Component {
         {
           props.news && props.news.length > 0 &&
           <div id={style.newsControlsContainer}>
-            <button onClick={(e) => { this.scrollNews('up', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-            <button onClick={(e) => { this.scrollNews('down', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+            <button onClick={(e) => { this.scrollNews('up', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class={classNames(fontAwesome.fa, fontAwesome['fa-chevron-up'])} aria-hidden="true"></i></button>
+            <button onClick={(e) => { this.scrollNews('down', e) }} onMouseEnter={this.pauseScrolling} onMouseLeave={this.startScrolling}><i class={classNames(fontAwesome.fa, fontAwesome['fa-chevron-down'])} aria-hidden="true"></i></button>
           </div>
         }
       </div>

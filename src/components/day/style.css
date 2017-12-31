@@ -4,7 +4,7 @@
 }
 
 #prevBtn, #nextBtn{
-  width: 100px;
+  /* width: 100px; */
   color: #F0E9DC;
   font-size: 30px;
   text-align: center;
@@ -16,6 +16,11 @@
   justify-content: center;
   flex-direction: column;
   text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  cursor: pointer;
 }
 
 #prevBtn:hover, #nextBtn:hover{

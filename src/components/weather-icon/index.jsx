@@ -1,8 +1,11 @@
+import { h, Component } from 'preact';
+import classNames from 'classnames';
+
 import style from '../../style/weather-icons.css';
 
 export default function (props) {
   return (
-    <i className={getWeatherIconClass(props.code)}></i>
+    <i className={classNames(getWeatherIconClass(props.code))}></i>
   );
 }
 
@@ -110,6 +113,6 @@ function getWeatherIconClass(condid) {
     default: icon = 'wi-cloud';
       break;
   }
-
-  return 'wi ' + icon;
+  
+  return [style.wi, style[icon]];
 }

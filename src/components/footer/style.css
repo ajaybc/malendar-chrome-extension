@@ -1,3 +1,7 @@
+footer {
+  position: relative;
+}
+
 #newsContainer {
   display: flex;
 }
@@ -10,4 +14,17 @@
   color: #6F5F5C;
   background: #F0E9DC;
   font-weight: 700;
+}
+
+#newsDescription{
+  position: absolute;
+  bottom: 50px;
+  padding: 10px;
+  background: #825D5B;
+  color: #F0E9DC;
+  text-align: justify;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
 }

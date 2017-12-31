@@ -1,10 +1,12 @@
 import { h, Component } from 'preact';
+import classNames from 'classnames';
 
 import malayalamDayNames from '../../constants/ml-days';
 import malayalamMonthNames from '../../constants/ml-months';
 
 import Day from './day';
 import style from './style.css';
+import fontAwesome from '../../style/font-awesome.css';
 
 export default class Month extends Component {
   componentWillMount() {
@@ -68,14 +70,14 @@ export default class Month extends Component {
 		return (
 			<div id={style.container}>
         <a href="#" id={style.prevBtn} onClick={(e) => { e.preventDefault(); props.onPrev({ month: days[0].gregorian.month, year: days[0].gregorian.year});}} >
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <i class={classNames(fontAwesome.fa, fontAwesome['fa-chevron-left'])} aria-hidden="true"></i>
         </a>
         <div id={style.monthContainer}>
           { this.renderWeekDayTitles() }
           { this.renderMonth() }
         </div>
         <a href="#" id={style.nextBtn} onClick={(e) => { e.preventDefault(); props.onNext({ month: days[0].gregorian.month, year: days[0].gregorian.year }); }} >
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          <i class={classNames(fontAwesome.fa, fontAwesome['fa-chevron-right'])} aria-hidden="true"></i>
         </a>
 			</div>
 		);

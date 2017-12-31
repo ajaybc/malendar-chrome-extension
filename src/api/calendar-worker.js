@@ -160,7 +160,7 @@ function isSecondSaturday(dayDetails) {
 }
 
 function isRepublicDay(dayDetails) {
-  if (dayDetails.gregorian.month === 0 && dayDetails.gregorian.date === 26) {
+  if (dayDetails.gregorian.month === 1 && dayDetails.gregorian.date === 26) {
     return true;
   }
   return false;

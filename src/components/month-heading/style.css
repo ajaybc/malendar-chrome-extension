@@ -1,0 +1,14 @@
+#monthHeading{
+  color: #F0E9DC;
+  text-align: center;
+}
+
+#gregorianMonth {
+  font-size: 28px;
+  padding-bottom: 5px;
+}
+
+#malayalamMonth {
+  font-size: 16px;
+  padding-bottom: 10px;
+}

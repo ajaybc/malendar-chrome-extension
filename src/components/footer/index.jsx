@@ -12,13 +12,27 @@ class Footer extends Component {
 	componentWillMount() {
 		this.props.actions.fetchNews();
 	}
+
+	showNewsDescription = (description) => {
+		this.setState({
+			newsDescription : description
+		});
+	}
+
+	hideNewsDescription = (description) => {
+		this.setState({
+			newsDescription: null
+		});
+	}
+
 	render(props) {
 		return (
 			<footer>
+				{this.state.newsDescription && <div id={style.newsDescription}>{this.state.newsDescription}</div>}
 				<div id={style.newsContainer}>
 					<div id={style.newsLeft}>വാർത്തകൾ</div>
 					{
-						(props.news) && <NewsScroller news={props.news}/>
+						(props.news) && <NewsScroller news={props.news} showNewsDescription={this.showNewsDescription} hideNewsDescription={this.hideNewsDescription}/>
 					}
 				</div>
 			</footer>

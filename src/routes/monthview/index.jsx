@@ -3,31 +3,16 @@ import { connect } from 'preact-redux';
 import { bindActionCreators } from 'redux';
 
 import Month from '../../components/month';
+import MonthHeading from '../../components/month-heading';
 
-class MonthView extends Component {
-  componentWillMount() {
-	}
-	render (props) {
+import style from './style.css';
+
+export default function (props) {
 		const params = props.match.params;
 		return (
-			<div id="month-page-container">
+			<div id={style.monthPageContainer}>
+				{props.days && props.days.length > 0 && <MonthHeading firstDay={props.days[0]} lastDay={props.days[props.days.length - 1]}/> }
 				{ props.days && props.days.length > 0 && <Month days={props.days} onPrev={props.onPrev} onNext={props.onNext}/> }
 			</div>
 		);
-	}
 }
-
-export default MonthView;
-
-// const mapStateToProps = state => ({
-//   days: state.days
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//     actions: bindActionCreators(CalendarActions, dispatch)
-// })
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(DayView);

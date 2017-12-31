@@ -10,7 +10,6 @@ import {
 } from 'react-router-dom';
 
 import reset from '../style/reset.css';
-import fontAwesome from '../style/font-awesome.css';
 import style from '../style/index.css';
 
 import Header from './header';
@@ -34,7 +33,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<div id="app">
+				<div id={style.app}>
 					<Header />
 					<Router>
 						<Route path="/" component={ Calendar }/>

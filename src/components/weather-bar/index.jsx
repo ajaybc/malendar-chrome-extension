@@ -1,10 +1,13 @@
 import { h, Component } from 'preact';
+import classNames from 'classnames';
+
 import { LOADING, SUCCESS, ERROR } from '../../constants/loading-status';
 
 import style from './style.css';
 
 import WeatherIcon from '../weather-icon';
 import weatherDistricts from '../../constants/weather-districts';
+import fontAwesome from '../../style/font-awesome.css';
 
 
 export default class extends Component {
@@ -54,7 +57,7 @@ export default class extends Component {
     //console.log('weatherDistricts', weatherDistricts);
     // const forecast = props.weather.data.forecast.slice(1, 4);
     return (
-      <div id={style.container}>
+      <div id={style.container} class="english">
         <div id={style.inner}>
           {
             props.weather.status === SUCCESS && <div id={style.weatherBlockWrap}>
@@ -77,7 +80,7 @@ export default class extends Component {
           }
           {
             props.weather.status === LOADING && <div id={style.loading}>
-              <i class="fa fa-refresh fa-spin" aria-hidden="true"></i>
+              <i class={classNames(fontAwesome.fa, fontAwesome['fa-refresh'], fontAwesome['fa-spin'])} aria-hidden="true"></i>
             </div>
           }
         </div>
@@ -87,7 +90,7 @@ export default class extends Component {
           <div id={style.cityContainer}>
             <a onClick={() => this.setState({ editMode:true })}>
               <span id={style.cityName}>{weatherDistricts[state.weatherCity].malayalamName} </span>
-              <i class="fa fa-cog" aria-hidden="true"></i>
+              <i class={classNames(fontAwesome.fa, fontAwesome['fa-cog'])} aria-hidden="true"></i>
             </a>
           </div>
         }
