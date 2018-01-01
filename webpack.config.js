@@ -78,7 +78,8 @@ module.exports = env => {
 		plugins: [
       new ExtractText('css/[name].[hash].css'),
 			new HtmlWebpackPlugin({
-        // template: './src/index.html'
+        // template: './src/index.html',
+        title: 'New Tab :: Malendar'
       }),
 		],
 		devtool: 'eval',

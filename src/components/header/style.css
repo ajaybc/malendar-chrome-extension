@@ -1,0 +1,23 @@
+header {
+  color: #F0E9DC;
+  padding: 10px;
+}
+
+#appBtn {
+  position: relative;
+  float: right;
+}
+
+.dropdownContainer {
+
+}
+
+.dropdown {
+  display: none;
+  position: relative;
+  margin-top: 5px;
+}
+
+.dropdownContainer:hover .dropdown {
+  display: block;
+}

@@ -14,6 +14,7 @@ import * as SettingsActions from '../../actioncreators/settings';
 import * as WeatherActions from '../../actioncreators/weather';
 
 import weatherDistricts from '../../constants/weather-districts';
+import {WEATHER_CITY} from '../../constants/config';
 
 import DayView from '../dayview';
 import MonthView from '../monthview';
@@ -30,7 +31,7 @@ class Calendar extends Component {
       props.actions.fetchMonth(splitPath[2], splitPath[3]);
     }
 
-    this.props.actions.fetchWeather('2295423');
+    this.props.actions.fetchWeather(WEATHER_CITY);
     this.props.actions.loadSettings();
   }
   componentWillReceiveProps(nextProps, nextState) {

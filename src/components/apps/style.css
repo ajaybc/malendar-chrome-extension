@@ -1,0 +1,48 @@
+#container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  color: #E38F71;
+  background: #f0e9dd;
+
+  width: 350px;
+  max-height: 400px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+#inner {
+
+}
+
+.block {
+  width: 33%;
+  text-align: center;
+  padding: 10px;
+
+  cursor: pointer;
+}
+
+.block:hover .label{
+  color: #825d5b;
+}
+
+.block img {
+  width: 80%;
+}
+
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+#noData {
+  padding: 20px;
+  text-align: center;
+}
