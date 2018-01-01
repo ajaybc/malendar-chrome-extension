@@ -35,6 +35,7 @@
   border: none;
   cursor: pointer;
   line-height: 50px;
+  font-family: "NotoSansMalayalamUI";
 }
 
 #newsControlsContainer {
