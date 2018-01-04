@@ -30,7 +30,9 @@ class Calendar extends Component {
       //console.log(splitPath[2], splitPath[3]);
       props.actions.fetchMonth(splitPath[2], splitPath[3]);
     }
-
+    this.setState({
+      viewMode: splitPath[1]
+    });
     this.props.actions.fetchWeather(WEATHER_CITY);
     this.props.actions.loadSettings();
   }
@@ -55,6 +57,9 @@ class Calendar extends Component {
     } else {
       this.props.history.push(`/day/${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`);
     }
+    this.setState({
+      viewMode
+    });
   }
 
   handlePrevDay = (activeDay) => {
@@ -108,7 +113,7 @@ class Calendar extends Component {
         <Route exact path={`${props.match.url}month/:year/:month`} render={(p) => {
           return <MonthView {...p} days={props.month} onPrev={this.handlePrevMonth} onNext={this.handleNextMonth}/>
         }} />
-        <Switcher viewMode={props.settings.viewMode} onSwitch={this.handleViewSwitch}/>
+        <Switcher viewMode={state.viewMode} onSwitch={this.handleViewSwitch}/>
       </div>
 		);
 	}

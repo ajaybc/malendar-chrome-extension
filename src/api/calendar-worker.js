@@ -61,9 +61,11 @@ function daysInMonth(year, month) {
     return new Date(year, month, 0).getDate();
 }
 
-function getWeekOfMonth(date) {
-  const d = date.getDate();
-  return Math.floor(d / 7) + 1;
+function getWeekOfMonth(d) {
+  const date = d.getDate();
+  const day = d.getDay();
+
+  return Math.ceil((date - 1 - day) / 7) + 1;
 }
 
 function checkSpeciality(dayDetails) {

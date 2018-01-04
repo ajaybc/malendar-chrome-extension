@@ -2,11 +2,19 @@
   text-align: center;
 }
 
-#switcher a{
+#switcher button{
   display: inline-block;
   padding: 15px;
   color: #F0E9DC;
   opacity: 0.6;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#switcher button:hover {
+  opacity: 0.8;
 }
 
 #switcher .active{
