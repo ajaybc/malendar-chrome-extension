@@ -14,5 +14,8 @@ export default function (props) {
     {
       (day.specialities && day.specialities.length > 0) && <div class={style.monthDaySpeciality}>{day.specialities[0]}</div>
     }
+    {
+      (props.activeDay) && <div class={style.activeDay} title="Today"></div>
+    }
   </div>
 }

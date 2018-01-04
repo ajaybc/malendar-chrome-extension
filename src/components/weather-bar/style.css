@@ -111,6 +111,8 @@
 #cityEditContainer input{
   background: #F0E9DC;
   color: #6D6D76;
+  box-shadow: none;
+  border: 2px solid #F0E9DC;
 }
 
 #cityEditContainer select{
@@ -119,7 +121,7 @@
   outline: none;
   box-shadow: none;
   color: #F0E9DC;
-  padding: 10px;
+  /* padding: 10px; */
   margin-right: 10px;
 }
 

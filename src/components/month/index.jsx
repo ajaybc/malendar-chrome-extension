@@ -54,11 +54,15 @@ export default class Month extends Component {
   }
 
   renderMonth = () => {
+    const today = new Date();
+    function isToday(day) {
+      return today.getDate() === day.gregorian.date && (today.getMonth() + 1) === day.gregorian.month && today.getFullYear() === day.gregorian.year;
+    }
     return (
       <div id={style.monthDaysContainer}>
         {
           this.state.paddedDays.map(function (day) {
-            return (day)?<Day day={day}/>:<div class={style.emptyDayContainer}></div>
+            return (day) ? <Day day={day} activeDay={isToday(day)}/>:<div class={style.emptyDayContainer}></div>
           })
         }
       </div>

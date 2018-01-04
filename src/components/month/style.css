@@ -122,6 +122,16 @@
   font-size: 14px;
 }
 
+.activeDay {
+  width:10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #e48e70;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 .borderRight {
   border-right: 1px solid #CCC;
 }
