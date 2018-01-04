@@ -128,6 +128,10 @@
   outline: none;
 }
 
+#cityEditContainer select option {
+  background: #444;
+}
+
 #loading {
   text-align: center;
   color: #F0E9DC;

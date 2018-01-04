@@ -35,8 +35,16 @@ export default class NewsScroller extends Component {
     }
   };
 
+  handleScroll = (e) => {
+    const wheelDelta = e.nativeEvent.wheelDelta;
+    if (e.wheelDelta > 0) {
+      this.scrollNews('up');
+    } else {
+      this.scrollNews('down');
+    }
+  }
+
   handleMouseEnter = (description) => {
-    console.log(this);
     this.pauseScrolling();
     this.props.showNewsDescription(description);
   }
@@ -67,7 +75,7 @@ export default class NewsScroller extends Component {
 	render(props, state) {
 		return (
 			<div id={style.newScrollerContainer}>
-        <div id={style.newsScrollerInner}>
+        <div id={style.newsScrollerInner} onWheel={this.handleScroll}>
           <ul id={style.newsUl} class="clearfix" ref={(scroller) => { this.scroller = scroller; }} style={{'margin-top': (state.step * NEWS_ITEM_HEIGHT * -1) + 'px'}}>
             {
               props.news.map((item) => {
