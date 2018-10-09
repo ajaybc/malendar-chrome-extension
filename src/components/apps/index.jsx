@@ -1,14 +1,13 @@
-import { h, Component } from 'preact';
+/* global chrome */
+import React, { Component } from 'react';
 
 import { LOADING, SUCCESS } from '../../constants/loading-status';
 
-import { connect } from 'preact-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import classNames from 'classnames';
-
 import * as AppActions from '../../actioncreators/apps';
-import style from './style.css';
+import style from './style.module.css';
 
 class Apps extends Component {
   componentWillMount() {
@@ -19,13 +18,14 @@ class Apps extends Component {
     chrome.management.launchApp(id);
   }
 
-  render (props) {
-    return <div id={style.container} class="english">
+  render () {
+    const { props } = this;
+    return <div id={style.container} className="english">
       {
         props.apps.status === SUCCESS && props.apps.data.map((item) => {
-          return <div class={style.block} onClick={() => this.launchApp(item.id)}>
+          return <div className={style.block} onClick={() => this.launchApp(item.id)}>
             <img src={item.icons[item.icons.length - 1].url}/>
-            <div class={style.label}>{item.name}</div>
+            <div className={style.label}>{item.name}</div>
           </div>
         })
       }

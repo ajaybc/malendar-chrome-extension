@@ -1,11 +1,11 @@
-import { h, Component } from 'preact';
-import { connect } from 'preact-redux';
+import React from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Month from '../../components/month';
 import MonthHeading from '../../components/month-heading';
 
-import style from './style.css';
+import style from './style.module.css';
 
 export default function (props) {
 		const params = props.match.params;

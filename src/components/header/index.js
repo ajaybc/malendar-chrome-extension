@@ -1,18 +1,18 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 
 import classNames from 'classnames';
 
 import Apps from '../apps';
-import style from './style.css';
-import fontAwesome from '../../style/font-awesome.css';
+import style from './style.module.css';
+import fontAwesome from '../../style/font-awesome.module.css';
 
 export default class Header extends Component {
 	render() {
 		return (
-			<header class="clearfix english">
-				<a id={style.appBtn} class={style.dropdownContainer}>
-					<div class={style.label}><i class={classNames(fontAwesome.fa, fontAwesome['fa-bars'])}/> Apps</div>
-					<div class={style.dropdown}>
+			<header className="clearfix english">
+				<a id={style.appBtn} className={style.dropdownContainer}>
+					<div className={style.label}><i className={classNames(fontAwesome.fa, fontAwesome['fa-bars'])}/> Apps</div>
+					<div className={style.dropdown}>
 						<Apps></Apps>
 					</div>
 				</a>

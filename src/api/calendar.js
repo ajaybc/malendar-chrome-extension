@@ -1,5 +1,6 @@
 import localforage from 'localforage';
-import Worker from 'worker-loader!./calendar-worker.js';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import Worker from 'worker-loader!./calendar.worker.js';
 
 export const fetchMonth = (year, month) => {
   return new Promise(async (resolve, reject) => {

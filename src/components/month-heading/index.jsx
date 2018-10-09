@@ -1,7 +1,7 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 
 import mlMonths from '../../constants/ml-months';
-import style from './style.css';
+import style from './style.module.css';
 
 export default function (props) {
   console.log(props);

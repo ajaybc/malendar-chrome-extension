@@ -1,14 +1,16 @@
-import { h, Component } from 'preact';
-import { connect } from 'preact-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import style from './style.css';
+import style from './style.module.css';
 
 import NewsScroller from '../newsscroller';
 
 import * as NewsActions from '../../actioncreators/news';
 
 class Footer extends Component {
+	state = {};
+
 	componentWillMount() {
 		this.props.actions.fetchNews();
 	}
@@ -25,10 +27,11 @@ class Footer extends Component {
 		});
 	}
 
-	render(props) {
+	render() {
+		const {props, state} = this;
 		return (
 			<footer>
-				{this.state.newsDescription && <div id={style.newsDescription}>{this.state.newsDescription}</div>}
+				{state.newsDescription && <div id={style.newsDescription}>{state.newsDescription}</div>}
 				<div id={style.newsContainer}>
 					<div id={style.newsLeft}>വാർത്തകൾ</div>
 					{

@@ -1,16 +1,18 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import { LOADING, SUCCESS, ERROR } from '../../constants/loading-status';
 
-import style from './style.css';
+import style from './style.module.css';
 
 import WeatherIcon from '../weather-icon';
 import weatherDistricts from '../../constants/weather-districts';
-import fontAwesome from '../../style/font-awesome.css';
+import fontAwesome from '../../style/font-awesome.module.css';
 
 
 export default class extends Component {
+  state = {};
+
   constructor(props) {
     super(props);
     // this.onChange = this.onChange.bind(this);
@@ -29,7 +31,7 @@ export default class extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextProps.weatherCity', nextProps.weatherCity);
+    // console.log('nextProps.weatherCity', nextProps.weatherCity);
     if (nextProps.settings.weatherCity !== this.props.settings.weatherCity) {
       this.setState({
         weatherCity: nextProps.settings.weatherCity
@@ -53,15 +55,14 @@ export default class extends Component {
     })
   }
 
-  render (props, state) {
-    //console.log('weatherDistricts', weatherDistricts);
-    // const forecast = props.weather.data.forecast.slice(1, 4);
+  render() {
+    const { props, state } = this;
     return (
-      <div id={style.container} class="english">
+      <div id={style.container} className="english">
         <div id={style.inner}>
           {
             props.weather.status === SUCCESS && <div id={style.weatherBlockWrap}>
-              {props.weather.data.forecast.slice(1, 4).map((item) => <div className={style.weatherBlock} title={item.text}>
+              {props.weather.data.forecast.slice(1, 4).map((item) => <div key={item.day} className={style.weatherBlock} title={item.text}>
                 <div className={style.left}>
                   <WeatherIcon code={item.code} />
                 </div>
@@ -80,7 +81,7 @@ export default class extends Component {
           }
           {
             props.weather.status === LOADING && <div id={style.loading}>
-              <i class={classNames(fontAwesome.fa, fontAwesome['fa-refresh'], fontAwesome['fa-spin'])} aria-hidden="true"></i>
+              <i className={classNames(fontAwesome.fa, fontAwesome['fa-refresh'], fontAwesome['fa-spin'])} aria-hidden="true"></i>
             </div>
           }
         </div>
@@ -90,7 +91,7 @@ export default class extends Component {
           <div id={style.cityContainer}>
             <a onClick={() => this.setState({ editMode:true })}>
               <span id={style.cityName}>{weatherDistricts[state.weatherCity].malayalamName} </span>
-              <i class={classNames(fontAwesome.fa, fontAwesome['fa-cog'])} aria-hidden="true"></i>
+              <i className={classNames(fontAwesome.fa, fontAwesome['fa-cog'])} aria-hidden="true"></i>
             </a>
           </div>
         }

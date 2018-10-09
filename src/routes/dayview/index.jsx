@@ -1,16 +1,17 @@
-import { h, Component } from 'preact';
-import { connect } from 'preact-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Day from '../../components/day';
 import WeatherBar from '../../components/weather-bar';
 
-import style from './style.css';
+import style from './style.module.css';
 
 class DayView extends Component {
   componentWillMount() {
 	}
-	render (props) {
+	render() {
+		const { props } = this;
 		const params = props.match.params;
 		return (
 			<div id={style.dayPageContainer}>

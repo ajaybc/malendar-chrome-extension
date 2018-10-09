@@ -1,5 +1,5 @@
-import { h, Component } from 'preact';
-import { connect } from 'preact-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import {
@@ -7,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import style from './style.css';
+import style from './style.module.css';
 
 import * as CalendarActions from '../../actioncreators/calendar';
 import * as SettingsActions from '../../actioncreators/settings';
@@ -97,7 +97,8 @@ class Calendar extends Component {
     const today = moment();
     return <Redirect to={`/day/${today.year()}/${today.month() + 1}/${today.date()}`} />
   }
-	render(props, state) {
+	render() {
+    const { props, state } = this;
 		return (
       <div id={style.calendarContainer}>
         <Route exact path={props.match.url} render={this.renderRoute} />

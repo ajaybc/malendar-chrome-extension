@@ -1,21 +1,21 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import style from './style.css';
+import style from './style.module.css';
 
 export default function (props) {
   const day = props.day;
-  return <div class={classNames(style.monthDayContainer, {[style.borderRight]: day.gregorian.day !== 6, [style.holiday]: day.isHoliday})}>
-    <h1 class={classNames(style.gregDate, 'english')}>{day.gregorian.date}</h1>
-    <div class={style.monthDayBottom}>
-      <div class={classNames(style.monthDayBottomLeft, 'english')}>{day.malayalam.date}</div>
-      <div class={style.monthDayBottomRight}>{day.malayalam.nakshatram}</div>
+  return <div className={classNames(style.monthDayContainer, {[style.borderRight]: day.gregorian.day !== 6, [style.holiday]: day.isHoliday})}>
+    <h1 className={classNames(style.gregDate, 'english')}>{day.gregorian.date}</h1>
+    <div className={style.monthDayBottom}>
+      <div className={classNames(style.monthDayBottomLeft, 'english')}>{day.malayalam.date}</div>
+      <div className={style.monthDayBottomRight}>{day.malayalam.nakshatram}</div>
     </div>
     {
-      (day.specialities && day.specialities.length > 0) && <div class={style.monthDaySpeciality}>{day.specialities[0]}</div>
+      (day.specialities && day.specialities.length > 0) && <div className={style.monthDaySpeciality}>{day.specialities[0]}</div>
     }
     {
-      (props.activeDay) && <div class={style.activeDay} title="Today"></div>
+      (props.activeDay) && <div className={style.activeDay} title="Today"></div>
     }
   </div>
 }

@@ -1,7 +1,7 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import style from '../../style/weather-icons.css';
+import style from '../../style/weather-icons.module.css';
 
 export default function (props) {
   return (

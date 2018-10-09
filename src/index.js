@@ -1,8 +1,5 @@
-import 'babel-polyfill';
-import { h, render } from 'preact';
-import './style';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './components/app';
 
-render((
-  <App />
-), document.body);
+ReactDOM.render(<App />, document.body);

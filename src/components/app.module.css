@@ -46,11 +46,6 @@ a {
 	font-family: 'Helvetica Neue', Arial, sans-serif !important;
 }
 
-#app {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
 
 header {
 	height: 30px;
@@ -61,4 +56,11 @@ footer {
 	height: 50px;
 	width: 100%;
 	background: #E38F71;
+}
+
+
+#app {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
