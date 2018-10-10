@@ -485,15 +485,15 @@ module.exports = {
       ],
     }),
 
-    new CspHtmlWebpackPlugin({
-      'base-uri': "'self'",
-      'object-src': "'none'",
-      'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
-      'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
-    }, {
-      hashingMethod: 'sha256',
-      enabled: true
-    }),
+    // new CspHtmlWebpackPlugin({
+    //   'base-uri': "'self'",
+    //   'object-src': "'none'",
+    //   'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
+    //   'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
+    // }, {
+    //   hashingMethod: 'sha256',
+    //   enabled: true
+    // }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
