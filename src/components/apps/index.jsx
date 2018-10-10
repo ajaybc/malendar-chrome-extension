@@ -1,7 +1,7 @@
 /* global chrome */
 import React, { Component } from 'react';
 
-import { LOADING, SUCCESS } from '../../constants/loading-status';
+import { SUCCESS } from '../../constants/loading-status';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -24,7 +24,7 @@ class Apps extends Component {
       {
         props.apps.status === SUCCESS && props.apps.data.map((item) => {
           return <div className={style.block} onClick={() => this.launchApp(item.id)}>
-            <img src={item.icons[item.icons.length - 1].url}/>
+            <img alt={`${item.name} icon`} src={item.icons[item.icons.length - 1].url}/>
             <div className={style.label}>{item.name}</div>
           </div>
         })

@@ -7,7 +7,7 @@ import fontAwesome from '../../style/font-awesome.module.css';
 import malayalamDayNames from '../../constants/ml-days';
 import malayalamMonthNames from '../../constants/ml-months';
 
-import { LOADING, SUCCESS, ERROR } from '../../constants/loading-status';
+import { LOADING, SUCCESS } from '../../constants/loading-status';
 
 import leftPad from 'left-pad';
 

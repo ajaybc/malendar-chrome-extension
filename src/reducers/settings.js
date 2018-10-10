@@ -1,4 +1,4 @@
-import { LOADED_SETTINGS, SAVED_SETTINGS, SWITCH_WEATHER_CITY } from '../constants/action-types'
+import { LOADED_SETTINGS, SAVED_SETTINGS } from '../constants/action-types'
 
 const initialState = {
   weatherCity: null

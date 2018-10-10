@@ -1,4 +1,4 @@
-import { FETCH_MONTH, FETCHING_MONTH, FETCHED_MONTH } from '../constants/action-types';
+import { FETCHED_MONTH } from '../constants/action-types';
 import * as api from '../api/calendar';
 
 export function fetchMonth (year, month) {

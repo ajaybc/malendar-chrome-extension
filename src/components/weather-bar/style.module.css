@@ -83,16 +83,22 @@
   font-size: 12px;
 }
 
-#cityContainer a{
+#cityContainer button{
   text-decoration: none;
   color: #F0E9DC;
   opacity: 0.3;
   transition: opacity 1s;
   font-family: "NotoSansMalayalam";
+  background: none;
+  border: none;
 }
 
-#cityContainer a:hover {
+#cityContainer button:hover {
   opacity: 1;
+}
+
+#cityContainer button:focus {
+  outline: none;
 }
 
 #cityContainer #cityName {

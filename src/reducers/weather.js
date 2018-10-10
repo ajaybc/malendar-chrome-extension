@@ -1,5 +1,5 @@
-import { FETCH_WEATHER, FETCHING_WEATHER, FETCHED_WEATHER, FETCH_FAILED_WEATHER } from '../constants/action-types';
-import { LOADING, SUCCESS, ERROR } from '../constants/loading-status';
+import { FETCHING_WEATHER, FETCHED_WEATHER } from '../constants/action-types';
+import { LOADING, SUCCESS } from '../constants/loading-status';
 
 const initialState = {
   data : {
@@ -13,7 +13,6 @@ export default function weather(state = initialState, action) {
     case FETCHING_WEATHER:
       return { data: {}, status: LOADING };
     case FETCHED_WEATHER:
-      //console.log('action', action);
       return { data: action.weather, status: SUCCESS };
 
     default:

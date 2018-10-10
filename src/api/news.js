@@ -1,7 +1,6 @@
 import localforage from 'localforage';
 
 import { NEWS_URL } from '../constants/urls';
-import { NEWS_EXPIRY } from '../constants/config';
 
 export const fetchNews = () => {
   return new Promise(async (resolve, reject) => {

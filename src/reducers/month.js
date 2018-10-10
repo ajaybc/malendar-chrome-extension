@@ -1,4 +1,4 @@
-import { FETCH_MONTH, FETCHING_MONTH, FETCHED_MONTH } from '../constants/action-types'
+import { FETCHED_MONTH } from '../constants/action-types'
 
 const initialState = [
   // {

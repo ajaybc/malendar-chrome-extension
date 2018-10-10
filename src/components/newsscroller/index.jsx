@@ -35,7 +35,6 @@ export default class NewsScroller extends Component {
   };
 
   handleScroll = (e) => {
-    const wheelDelta = e.nativeEvent.wheelDelta;
     if (e.wheelDelta > 0) {
       this.scrollNews('up');
     } else {
@@ -58,13 +57,13 @@ export default class NewsScroller extends Component {
     const step = this.state.step;
     if (mode === 'up') {
       if (step < maxSteps) {
-        this.setState((state, props) => { step : state.step++ });
+        this.setState((state) => { step: state.step++ }); // eslint-disable-line
       } else {
         this.setState({ step: 0 });
       }
     } else {
       if (step > 0) {
-        this.setState((state, props) => { step : state.step-- });
+        this.setState((state) => { step: state.step-- }); // eslint-disable-line
       } else {
         this.setState({ step: (maxSteps - 1) });
       }

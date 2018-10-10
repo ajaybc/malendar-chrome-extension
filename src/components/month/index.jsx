@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import malayalamDayNames from '../../constants/ml-days';
-import malayalamMonthNames from '../../constants/ml-months';
 
 import Day from './day';
 import style from './style.module.css';
@@ -74,16 +73,16 @@ export default class Month extends Component {
     const { days } = props;
 		return (
 			<div id={style.container}>
-        <a href="#" id={style.prevBtn} onClick={(e) => { e.preventDefault(); props.onPrev({ month: days[0].gregorian.month, year: days[0].gregorian.year});}} >
+        <div href="#" id={style.prevBtn} onClick={(e) => { e.preventDefault(); props.onPrev({ month: days[0].gregorian.month, year: days[0].gregorian.year});}} >
           <i className={classNames(fontAwesome.fa, fontAwesome['fa-chevron-left'])} aria-hidden="true"></i>
-        </a>
+        </div>
         <div id={style.monthContainer}>
           { this.renderWeekDayTitles() }
           { this.renderMonth() }
         </div>
-        <a href="#" id={style.nextBtn} onClick={(e) => { e.preventDefault(); props.onNext({ month: days[0].gregorian.month, year: days[0].gregorian.year }); }} >
+        <div href="#" id={style.nextBtn} onClick={(e) => { e.preventDefault(); props.onNext({ month: days[0].gregorian.month, year: days[0].gregorian.year }); }} >
           <i className={classNames(fontAwesome.fa, fontAwesome['fa-chevron-right'])} aria-hidden="true"></i>
-        </a>
+        </div>
 			</div>
 		);
   }

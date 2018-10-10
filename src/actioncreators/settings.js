@@ -1,4 +1,4 @@
-import { LOAD_SETTINGS, LOADED_SETTINGS, SAVED_SETTINGS, SWITCH_WEATHER_CITY } from '../constants/action-types';
+import { LOADED_SETTINGS, SAVED_SETTINGS, SWITCH_WEATHER_CITY } from '../constants/action-types';
 import * as api from '../api/settings';
 
 

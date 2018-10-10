@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -185,8 +186,9 @@ module.exports = {
     // https://twitter.com/wSokra/status/969633336732905474
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
-      chunks: 'all',
-      name: false,
+      cacheGroups: {
+        default: false
+      }
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
@@ -430,6 +432,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
     new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
@@ -480,6 +483,16 @@ module.exports = {
         // public/ and not a SPA route
         new RegExp('/[^/]+\\.[^/]+$'),
       ],
+    }),
+
+    new CspHtmlWebpackPlugin({
+      'base-uri': "'self'",
+      'object-src': "'none'",
+      'script-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"],
+      'style-src': ["'unsafe-inline'", "'self'", "'unsafe-eval'"]
+    }, {
+      hashingMethod: 'sha256',
+      enabled: true
     }),
   ],
   // Some libraries import Node modules but don't use them in the browser.

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import { LOADING, SUCCESS, ERROR } from '../../constants/loading-status';
+import { LOADING, SUCCESS } from '../../constants/loading-status';
 
 import style from './style.module.css';
 
@@ -89,10 +89,10 @@ export default class extends Component {
         {
           !state.editMode && state.weatherCity &&
           <div id={style.cityContainer}>
-            <a onClick={() => this.setState({ editMode:true })}>
+            <button onClick={() => this.setState({ editMode:true })}>
               <span id={style.cityName}>{weatherDistricts[state.weatherCity].malayalamName} </span>
               <i className={classNames(fontAwesome.fa, fontAwesome['fa-cog'])} aria-hidden="true"></i>
-            </a>
+            </button>
           </div>
         }
 

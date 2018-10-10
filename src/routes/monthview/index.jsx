@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Month from '../../components/month';
 import MonthHeading from '../../components/month-heading';
@@ -8,7 +6,6 @@ import MonthHeading from '../../components/month-heading';
 import style from './style.module.css';
 
 export default function (props) {
-		const params = props.match.params;
 		return (
 			<div id={style.monthPageContainer}>
 				{props.days && props.days.length > 0 && <MonthHeading firstDay={props.days[0]} lastDay={props.days[props.days.length - 1]}/> }

@@ -9,7 +9,15 @@ header {
 }
 
 .dropdownContainer {
+  border: none;
+  background: none;
+  color: #f1e9da;
+  font-size: 1.0em;
+}
 
+.dropdownContainer:focus {
+  outline: none;
+  border: none;
 }
 
 .dropdown {

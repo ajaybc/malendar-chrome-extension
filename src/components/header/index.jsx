@@ -10,12 +10,12 @@ export default class Header extends Component {
 	render() {
 		return (
 			<header className="clearfix english">
-				<a id={style.appBtn} className={style.dropdownContainer}>
+				<button id={style.appBtn} className={style.dropdownContainer}>
 					<div className={style.label}><i className={classNames(fontAwesome.fa, fontAwesome['fa-bars'])}/> Apps</div>
 					<div className={style.dropdown}>
 						<Apps></Apps>
 					</div>
-				</a>
+				</button>
 			</header>
 		);
 	}

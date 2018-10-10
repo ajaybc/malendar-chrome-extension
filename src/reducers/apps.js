@@ -1,5 +1,5 @@
-import { FETCH_APPS, FETCHING_APPS, FETCHED_APPS, FETCH_FAILED_APPS } from '../constants/action-types';
-import { LOADING, SUCCESS, ERROR } from '../constants/loading-status';
+import { FETCHING_APPS, FETCHED_APPS } from '../constants/action-types';
+import { LOADING, SUCCESS } from '../constants/loading-status';
 
 const initialState = {
   data : []

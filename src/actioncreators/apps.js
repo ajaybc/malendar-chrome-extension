@@ -1,4 +1,4 @@
-import { FETCH_APPS, FETCHING_APPS, FETCHED_APPS } from '../constants/action-types';
+import { FETCHING_APPS, FETCHED_APPS } from '../constants/action-types';
 
 import * as api from '../api/apps';
 

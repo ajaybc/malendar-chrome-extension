@@ -1,4 +1,4 @@
-import { FETCH_WEATHER, FETCHING_WEATHER, FETCHED_WEATHER } from '../constants/action-types';
+import { FETCHING_WEATHER, FETCHED_WEATHER } from '../constants/action-types';
 
 import * as api from '../api/weather';
 

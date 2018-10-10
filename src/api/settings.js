@@ -1,8 +1,5 @@
 import localforage from 'localforage';
 
-import { NEWS_URL } from '../constants/urls';
-import { NEWS_EXPIRY } from '../constants/config';
-
 const defaultSettings = {
   'weatherCity': 'kochi',
 }

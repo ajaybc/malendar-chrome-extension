@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import mlMonths from '../../constants/ml-months';
 import style from './style.module.css';

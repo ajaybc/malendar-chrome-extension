@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import fontAwesome from '../../style/font-awesome.module.css';

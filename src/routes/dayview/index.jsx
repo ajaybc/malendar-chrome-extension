@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Day from '../../components/day';
 import WeatherBar from '../../components/weather-bar';
@@ -12,7 +10,6 @@ class DayView extends Component {
 	}
 	render() {
 		const { props } = this;
-		const params = props.match.params;
 		return (
 			<div id={style.dayPageContainer}>
 				{ props.day && <Day day={props.day} onPrev={props.onPrev} onNext={props.onNext} weather={props.weather}/> }

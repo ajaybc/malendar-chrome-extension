@@ -1,4 +1,4 @@
-import { FETCH_NEWS, FETCHING_NEWS, FETCHED_NEWS } from '../constants/action-types';
+import { FETCHED_NEWS } from '../constants/action-types';
 // import { NEWS_URL } from '../constants/urls';
 import * as api from '../api/news';
 
