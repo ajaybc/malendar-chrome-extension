@@ -2,10 +2,10 @@ import { FETCHING_APPS, FETCHED_APPS } from '../constants/action-types';
 
 import * as api from '../api/apps';
 
-export function fetchApps (woeid) {
+export function fetchApps () {
   return dispatch => {
     dispatch(fetchingApps());
-    return api.fetchApps(woeid).then(json => dispatch(fetchedApps(json)))
+    return api.fetchApps().then(json => dispatch(fetchedApps(json)))
   };
 }
 
