@@ -2,7 +2,6 @@ import { FETCHED_MONTH } from '../constants/action-types';
 import * as api from '../api/calendar';
 
 export function fetchMonth (year, month) {
-  //console.log('year month', year, month);
   return dispatch => {
     return api.fetchMonth(year, month).then(month => dispatch(fetchedMonth(month.days)))
   };
