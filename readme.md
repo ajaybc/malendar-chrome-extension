@@ -1,5 +1,6 @@
 Malendar - A New Tab Page For Malayalees
 ========
+[![Build Status](https://travis-ci.com/ajaybc/malendar-chrome-extension.svg?branch=master)](https://travis-ci.com/ajaybc/malendar-chrome-extension)
 
 Malendar is a simple new tab page with a malayalam calendar widget made by a Malayalee for all Malayalees.
 
